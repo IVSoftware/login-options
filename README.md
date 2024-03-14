@@ -1,6 +1,8 @@
 ## Extended Login Options
 
-Showing any form prior to making the main form visible can be tricky because that first form is going effectively become the main application window which is pathological. I have answers explaining this for a [Login Form](https://stackoverflow.com/a/74736871/5438626) and a [Splash Screen](https://stackoverflow.com/a/75534137/5438626). Let's adapt the first answer to your situation where a mock flow would be:
+Showing any form prior to making the main form visible can be tricky business because that first form is going effectively attempt to become the main application window (i.e. `Application.OpenForms[0]) which is pathological. I have answers explaining this for [Login Form](https://stackoverflow.com/a/74736871/5438626) and [Splash Screen](https://stackoverflow.com/a/75534137/5438626). 
+
+What I want to do is adapt that first answer to your situation where a mock flow would be:
 
 **Login**
 
@@ -49,7 +51,7 @@ public partial class ChangePasswordForm : Form
 
 ___
 
-Meanwhile, the `DashboardForm` has been waiting the dialog result of the `ChangePasswordForm` (in the response to clicking the [Change Password] button.
+Meanwhile, the `DashboardForm` has been waiting for the dialog result of the `ChangePasswordForm` in the response to clicking the [Change Password] button.
 
 ```
 public partial class DashboardForm : Form
@@ -80,7 +82,7 @@ public partial class DashboardForm : Form
         };
     }
 ```
-This changes the `IsLoggedIn` bool wich controls the visibility of the `Dashboard`, giving you the behavior you describe.
+This in turn changes the `IsLoggedIn` bool wich controls the visibility of the `Dashboard`, giving you the behavior you describe.
 ```
 
     bool _isLoggedIn = false;
