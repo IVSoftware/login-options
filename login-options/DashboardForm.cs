@@ -41,12 +41,12 @@ namespace login_options
                 if (!Equals(_isLoggedIn, value))
                 {
                     _isLoggedIn = value;
-                    onIsLoggedInChanged();
+                    OnIsLoggedInChanged();
                 }
             }
         }
 
-        private void onIsLoggedInChanged()
+        protected virtual void OnIsLoggedInChanged()
         {
             if (IsLoggedIn)
             {
