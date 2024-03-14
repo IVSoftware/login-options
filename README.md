@@ -94,12 +94,12 @@ This in turn changes the `IsLoggedIn` bool wich controls the visibility of the `
             if (!Equals(_isLoggedIn, value))
             {
                 _isLoggedIn = value;
-                onIsLoggedInChanged();
+                OnIsLoggedInChanged();
             }
         }
     }
 
-    private void onIsLoggedInChanged()
+    protected virtual void OnIsLoggedInChanged()
     {
         if (IsLoggedIn)
         {
