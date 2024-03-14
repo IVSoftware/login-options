@@ -82,7 +82,7 @@ public partial class DashboardForm : Form
         };
     }
 ```
-This in turn changes the `IsLoggedIn` bool wich controls the visibility of the `Dashboard`, giving you the behavior you describe.
+This in turn changes the `IsLoggedIn` bool which controls the visibility of the `Dashboard`, giving you the behavior you describe.
 ```
 
     bool _isLoggedIn = false;
