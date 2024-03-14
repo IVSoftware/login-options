@@ -1,6 +1,6 @@
 ## Extended Login Options
 
-Showing any form prior to making the main form visible can be tricky business because that first form is going effectively attempt to become the main application window (i.e. `Application.OpenForms[0]) which is pathological. I have answers explaining this for [Login Form](https://stackoverflow.com/a/74736871/5438626) and [Splash Screen](https://stackoverflow.com/a/75534137/5438626). 
+Showing any form prior to making the main form visible can be tricky business because that first form is going effectively attempt to become the main application window (i.e. `Application.OpenForms[0]`) which is pathological. I have answers explaining this for [Login Form](https://stackoverflow.com/a/74736871/5438626) and [Splash Screen](https://stackoverflow.com/a/75534137/5438626). 
 
 What I want to do is adapt that first answer to your situation where a mock flow would be:
 
