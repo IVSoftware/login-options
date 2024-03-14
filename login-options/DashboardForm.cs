@@ -5,20 +5,30 @@ namespace login_options
         public DashboardForm()
         {
             InitializeComponent();
+            // Ordinarily we don't get the handle until
+            // window is shown. But we want it now.
+            _ = Handle;
+            // Call BeginInvoke on the new handle so as not to block the CTor.
+            BeginInvoke(new Action(() => execLoginFlow()));
+            // Ensure final disposal of login form. Failure to properly dispose of window 
+            // handles is the leading cause of the kind of exit hang you describe.
+            Disposed += (sender, e) =>
             {
-                InitializeComponent();
-                // Ordinarily we don't get the handle until
-                // window is shown. But we want it now.
-                _ = Handle;
-                // Call BeginInvoke on the new handle so as not to block the CTor.
-                BeginInvoke(new Action(() => execLoginFlow()));
-                // Ensure final disposal of login form. Failure to properly dispose of window 
-                // handles is the leading cause of the kind of exit hang you describe.
-                Disposed += (sender, e) => _loginForm.Dispose();
-                buttonSignOut.Click += (sender, e) => IsLoggedIn = false;
-            }
+                _loginForm.Dispose();
+                _changePasswordForm.Dispose();
+            };
+            buttonSignOut.Click += (sender, e) => IsLoggedIn = false;
+            buttonChangePassword.Click += (sender, e) =>
+            {
+                switch (_changePasswordForm.ShowDialog(this))
+                {
+                    case DialogResult.Yes: IsLoggedIn = false; break;
+                    case DialogResult.No: /* N O O P */ break;
+                }
+            };
         }
         private LoginForm _loginForm = new LoginForm();
+        private ChangePasswordForm _changePasswordForm = new ChangePasswordForm();
         protected override void SetVisibleCore(bool value) =>
             base.SetVisibleCore(value && IsLoggedIn);
 
@@ -41,7 +51,7 @@ namespace login_options
             if (IsLoggedIn)
             {
                 WindowState = FormWindowState.Maximized;
-                Text = $"Welcome {_loginForm.UserName}";
+                Text = $"DASHBOARD - Welcome {_loginForm.UserName}";
                 Visible = true;
             }
             else execLoginFlow();

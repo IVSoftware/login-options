@@ -28,31 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSignOut = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            buttonSignOut = new Button();
+            buttonChangePassword = new Button();
+            SuspendLayout();
             // 
             // buttonSignOut
             // 
-            this.buttonSignOut.Location = new System.Drawing.Point(22, 33);
-            this.buttonSignOut.Name = "buttonSignOut";
-            this.buttonSignOut.Size = new System.Drawing.Size(112, 34);
-            this.buttonSignOut.TabIndex = 0;
-            this.buttonSignOut.Text = "Sign Out";
-            this.buttonSignOut.UseVisualStyleBackColor = true;
+            buttonSignOut.Location = new Point(22, 33);
+            buttonSignOut.Name = "buttonSignOut";
+            buttonSignOut.Size = new Size(161, 34);
+            buttonSignOut.TabIndex = 0;
+            buttonSignOut.Text = "Sign Out";
+            buttonSignOut.UseVisualStyleBackColor = true;
             // 
-            // HomeForm
+            // buttonChangePassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 244);
-            this.Controls.Add(this.buttonSignOut);
-            this.Name = "HomeForm";
-            this.ResumeLayout(false);
-
+            buttonChangePassword.Location = new Point(22, 73);
+            buttonChangePassword.Name = "buttonChangePassword";
+            buttonChangePassword.Size = new Size(161, 34);
+            buttonChangePassword.TabIndex = 0;
+            buttonChangePassword.Text = "Change Password";
+            buttonChangePassword.UseVisualStyleBackColor = true;
+            // 
+            // DashboardForm
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(478, 244);
+            Controls.Add(buttonChangePassword);
+            Controls.Add(buttonSignOut);
+            Name = "DashboardForm";
+            ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.Button buttonSignOut;
+        private Button buttonChangePassword;
     }
 }
